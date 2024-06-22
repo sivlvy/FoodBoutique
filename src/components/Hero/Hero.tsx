@@ -6,15 +6,15 @@ import scss from "./hero.module.scss";
 
 export interface HeroProps {}
 
-export default function Hero({}: HeroProps) {
+export default function Hero() {
   return (
     <div className={scss.section_wrapper}>
       <h1 className={scss.hero_title}>
         Welcome to the <span className={scss.title_span}>Food</span> Boutique
       </h1>
       <p className={scss.descr}>
-        With Food Boutique, you're not just subscribing to food, you're signing
-        up for a fresher, fitter, and happier you.
+        With Food Boutique, you&apos;re not just subscribing to food,
+        you&apos;re signing up for a fresher, fitter, and happier you.
       </p>
       <div className={scss.hero_img}>
         <picture>
