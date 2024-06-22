@@ -1,0 +1,35 @@
+.section_wrapper {
+  @apply pt-[72px] relative;
+}
+
+.hero_title {
+  @apply font-medium text-[44px] text-center text-customBlack pb-[16px] leading-[1.09];
+}
+.title_span {
+  @apply text-customLightGreen;
+}
+
+.descr {
+  @apply font-normal text-center text-customBlack opacity-[0.8] pb-8;
+}
+
+.hero_img_content {
+  @apply rounded-[30px];
+}
+
+.hero_img {
+  @apply relative;
+}
+
+.icon_organic {
+  @apply absolute top-[-7px] right-[-67px];
+}
+
+@media screen and (min-width:768px) {
+  .hero_title {
+    @apply text-[80px] leading-[1];
+  }
+  .descr {
+    @apply text-[18px] leading-[1.33];
+  }
+}
