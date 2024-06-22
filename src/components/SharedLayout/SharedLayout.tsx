@@ -8,7 +8,7 @@ import NavBar from "../NavBar/NavBar.tsx";
 
 export interface SharedLayoutProps {}
 
-export default function SharedLayout({}: SharedLayoutProps) {
+export default function SharedLayout() {
   return (
     <>
       <Container>

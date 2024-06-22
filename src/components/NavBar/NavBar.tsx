@@ -7,7 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 
 export interface NavBarProps {}
 
-export default function NavBar({}: NavBarProps) {
+export default function NavBar() {
   return (
     <header className={scss.header}>
       <div className={scss.wrapper}>
