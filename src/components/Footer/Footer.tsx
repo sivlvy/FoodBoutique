@@ -16,8 +16,6 @@ interface Input {
 export interface FooterProps {}
 
 export default function Footer({}: FooterProps) {
-  const [value, setValue] = useState<Input>();
-
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
   const {
@@ -28,7 +26,7 @@ export default function Footer({}: FooterProps) {
   } = useForm<Input>();
 
   const onSubmit: SubmitHandler<Input> = (data) => {
-    setValue(data);
+    console.log(data);
     openModal();
     reset();
   };
@@ -106,7 +104,12 @@ export default function Footer({}: FooterProps) {
                   {errors.email && (
                     <p className={scss.error}>{errors.email.message}</p>
                   )}
-                  <Modal isOpen={modalIsOpen}>
+                  <Modal
+                    isOpen={modalIsOpen}
+                    className={scss.modal}
+                    onRequestClose={closeModal}
+                    closeTimeoutMS={300}
+                  >
                     <SubscribeModal closeModal={closeModal} />
                   </Modal>
                   <button className={scss.button} type="submit">

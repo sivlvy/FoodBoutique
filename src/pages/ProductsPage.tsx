@@ -1,6 +1,6 @@
 // import React from "react";
 import Filters from "../components/Filters/Filters.tsx";
-import ProductsList from "../components/ProductsList/ProductsList.tsx";
+import Products from "../components/ProductsList/Products.tsx";
 
 export interface ProductsPageProps {}
 
@@ -8,7 +8,7 @@ export default function ProductsPage({}: ProductsPageProps) {
   return (
     <>
       <Filters />
-      <ProductsList />
+      <Products />
     </>
   );
 }

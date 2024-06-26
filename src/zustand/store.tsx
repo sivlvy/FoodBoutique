@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-interface Product {
+export interface Product {
   _id: string;
   name: string;
   img: string;
@@ -9,6 +9,7 @@ interface Product {
   size: string;
   is10PercentOff: boolean;
   popularity: number;
+  category: string;
 }
 
 export interface ProductStore {

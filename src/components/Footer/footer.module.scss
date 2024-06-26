@@ -68,8 +68,18 @@
 
 }
 
+.error {
+  @apply uppercase pt-2 text-red-500 font-medium;
+}
+
+
+
 .web_name {
   @apply font-normal text-[14px] tracking-[1.28] text-customLight opacity-[0.9];
+}
+
+.modal {
+  @apply  w-[490px] h-[400px] bg-customLight absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] rounded-[20px];
 }
 
 
