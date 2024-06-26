@@ -2,8 +2,15 @@
 
 // import scss from "./subscribe-modal.module.scss";
 
-export interface SubscribeModalProps {}
+export interface SubscribeModalProps {
+  closeModal: () => void;
+}
 
-export default function SubscribeModal({}: SubscribeModalProps) {
-  return <div>Modal</div>;
+export default function SubscribeModal({ closeModal }: SubscribeModalProps) {
+  return (
+    <div>
+      <div className="">Modal</div>
+      <button onClick={closeModal}>X</button>
+    </div>
+  );
 }
