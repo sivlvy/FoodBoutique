@@ -4,6 +4,6 @@
 
 @media screen and (min-width:1440px) {
   .normalProducts {
-    @apply flex-row;
+    @apply flex-row gap-[40px];
   }
 }

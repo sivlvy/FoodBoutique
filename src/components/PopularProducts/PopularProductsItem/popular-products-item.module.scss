@@ -27,11 +27,11 @@
 }
 
 .iconWrapper {
-  @apply px-[4px] py-[4px] bg-customLight rounded-full hover:bg-customLightGreen transition-all duration-200 ;
+  @apply px-[4px] py-[4px] bg-customLight rounded-full hover:bg-customLightGreen transition-all duration-200 cursor-pointer ;
 }
 
 .icon_cart {
-  @apply w-[12px] h-[12px] fill-customLightGreen;
+  @apply w-[12px] h-[12px] fill-customLightGreen hover:fill-customLight;
 }
 
 .textWrapper {
@@ -55,4 +55,16 @@
 
 .popularityAndSpan {
   @apply font-normal text-[12px] leading-[1.16] text-customBlack ;
+}
+
+@media screen and (min-width: 768px) {
+  .product_item {
+  @apply w-[325px];
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .list {
+    @apply flex-col;
+  }
 }

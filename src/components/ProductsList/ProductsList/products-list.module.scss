@@ -10,6 +10,6 @@
 
 @media screen and (min-width: 1440px) {
   .list {
-    @apply justify-normal;
+    @apply flex;
   }
 }

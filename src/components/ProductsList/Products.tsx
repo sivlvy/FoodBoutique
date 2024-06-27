@@ -8,19 +8,11 @@ import useProductStore from "../../zustand/store.tsx";
 
 import { useEffect } from "react";
 
-import Pagination from "../Pagination/Pagination.tsx";
-
 export interface ProductsListProps {}
 
 export default function Products({}: ProductsListProps) {
-  const {
-    products,
-    fetchProducts,
-    currentPage,
-    totalPages,
-    isError,
-    isLoading,
-  } = useProductStore();
+  const { products, fetchProducts, currentPage, isError, isLoading } =
+    useProductStore();
   console.log(products);
 
   useEffect(() => {
@@ -35,7 +27,7 @@ export default function Products({}: ProductsListProps) {
           isError={isError}
         />
         <div className={scss.notNormal_products}>
-          <h2 className="font-medium text-[24px] leading-[1.16] text-customBlack">
+          <h2 className="font-medium text-[24px] leading-[1.16] pb-[20px] text-customBlack">
             Popular products
           </h2>
           <PopularProducts

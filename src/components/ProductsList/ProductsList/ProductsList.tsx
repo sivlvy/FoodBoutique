@@ -4,6 +4,8 @@ import { Product } from "../../../zustand/store.tsx";
 import ProductItem from "./ProductItem/ProductItem.tsx";
 import scss from "./products-list.module.scss";
 import Pagination from "../../Pagination/Pagination.tsx";
+import { useEffect } from "react";
+import useProductStore from "../../../zustand/store.tsx";
 
 export interface ProductsListProps {
   products: Product[];
@@ -11,11 +13,17 @@ export interface ProductsListProps {
   isError: string | null;
 }
 
-export default function ProductsList({
-  products,
-  isError,
-  isLoading,
-}: ProductsListProps) {
+export default function ProductsList({ products, isError }: ProductsListProps) {
+  const { currentPage, totalPages, isLoading, fetchProducts } =
+    useProductStore();
+
+  const handlePageChange = (page: number) => {
+    fetchProducts(currentPage);
+  };
+
+  useEffect(() => {
+    fetchProducts(currentPage);
+  }, [currentPage, fetchProducts]);
   return (
     <div className="flex flex-col">
       <ul className={scss.list}>
@@ -45,7 +53,12 @@ export default function ProductsList({
           ),
         )}
       </ul>
-      <Pagination />
+      <Pagination
+        onPageChange={handlePageChange}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        isLoading={isLoading}
+      />
     </div>
   );
 }
