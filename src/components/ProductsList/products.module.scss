@@ -1,0 +1,9 @@
+.normalProducts {
+  @apply flex flex-col;
+}
+
+@media screen and (min-width:1440px) {
+  .normalProducts {
+    @apply flex-row;
+  }
+}

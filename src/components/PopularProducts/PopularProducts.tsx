@@ -1,7 +1,38 @@
 // import React from "react";
+import scss from "./popular-products.module.scss";
 
-export interface PopularProductsProps {}
+import { Product } from "../../zustand/store.tsx";
+import PopularProductsItem from "./PopularProductsItem/PopularProductsItem.tsx";
 
-export default function PopularProducts({}: PopularProductsProps) {
-  return <div>PopularProducts</div>;
+export interface PopularProductsProps {
+  products: Product[];
+  isError: string | null;
+  isLoading: boolean;
+}
+
+export default function PopularProducts({
+  products,
+  isError,
+  isLoading,
+}: PopularProductsProps) {
+  return (
+    <div className={scss.wrapper}>
+      <ul className={scss.list}>
+        {products.map(
+          ({ name, img, category, size, popularity, _id }: Product) => (
+            <PopularProductsItem
+              key={_id}
+              name={name}
+              img={img}
+              category={category}
+              size={size}
+              popularity={popularity}
+              isLoading={isLoading}
+              isError={isError}
+            />
+          ),
+        )}
+      </ul>
+    </div>
+  );
 }

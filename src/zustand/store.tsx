@@ -2,7 +2,7 @@ import { create } from "zustand";
 import axios from "axios";
 
 export interface Product {
-  _id: string;
+  _id?: string;
   name: string;
   img: string;
   price: number;
