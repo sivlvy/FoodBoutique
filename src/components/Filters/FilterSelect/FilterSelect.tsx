@@ -1,11 +1,7 @@
 // import React from "react";
 
-export interface FilterSelectProps {
-
-}
+export interface FilterSelectProps {}
 
 export default function FilterSelect({}: FilterSelectProps) {
-  return (
-    <div>FilterSelect</div>
-  );
+  return <div>FilterSelect</div>;
 }

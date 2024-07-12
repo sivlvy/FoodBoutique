@@ -10,6 +10,8 @@ import {
   fetchProducts,
 } from "../../redux/products/products-operations.ts";
 
+import scss from "./products.module.scss";
+
 export interface ProductsProps {}
 
 export default function Products({}: ProductsProps) {
@@ -22,9 +24,9 @@ export default function Products({}: ProductsProps) {
   useEffect(() => {
     dispatch(fetchProducts(page));
     dispatch(fetchPopularProducts());
-  }, []);
+  }, [dispatch, page]);
   return (
-    <div>
+    <div className={scss.list}>
       <ProductsList items={products} />
       <ProductsPopular items={popularProducts} />
       <ProductsDiscount />

@@ -18,7 +18,7 @@ export default function SharedLayout() {
           <Outlet />
         </Suspense>
       </Container>
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -43,6 +43,7 @@ const productsSlice = createSlice({
       .addCase(fetchProducts.pending, (state) => {
         state.isLoading = true;
       })
+
       .addCase(
         fetchProducts.fulfilled,
         (state, { payload }: PayloadAction<ProductListResponse>) => {

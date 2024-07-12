@@ -1,0 +1,19 @@
+$mobile: 375px;
+$tablet: 768px;
+$desktop: 1440px;
+
+@mixin media-rules($screen) {
+  @if $screen == tablet {
+    @media screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if $screen == desktop {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  } @else if $screen == mobile {
+    @media screen and (min-width: $mobile) {
+      @content;
+    }
+  }
+}

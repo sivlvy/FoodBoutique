@@ -1,10 +1,10 @@
 .list {
-  @apply flex flex-col gap-[20px] items-center justify-between;
+  @apply flex flex-col gap-[20px] items-center ;
 }
 
 @media screen and (min-width: 768px) {
   .list {
-    @apply items-center gap-[32px] justify-center flex-row flex-wrap;
+    @apply items-center gap-[32px]  flex-row flex-wrap;
   }
 }
 

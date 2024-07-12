@@ -3,16 +3,13 @@
 import FilterKeyword from "./FilterKeyword/FilterKeyword.tsx";
 import FilterSelect from "./FilterSelect/FilterSelect.tsx";
 
-
-export interface FiltersProps {
-
-}
+export interface FiltersProps {}
 
 export default function Filters({}: FiltersProps) {
   return (
     <div>
-      <FilterKeyword/>
-      <FilterSelect/>
+      <FilterKeyword />
+      <FilterSelect />
     </div>
   );
 }
