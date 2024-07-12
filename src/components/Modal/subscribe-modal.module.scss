@@ -1,0 +1,25 @@
+.wrapper {
+  @apply  pt-[90px] text-center;
+}
+
+.icon_close_logo {
+  @apply w-[16px] h-[16px] absolute top-[24px] right-[24px] cursor-pointer;
+}
+
+.text_wrapper {
+  @apply w-[328px] mx-auto;
+}
+
+.title {
+  @apply font-medium text-[24px] leading-[1] text-customBlack pb-[20px];
+}
+
+.descr {
+  @apply font-normal text-[16px] leading-[1.25] text-customBlack opacity-[0.7];
+}
+.span {
+  @apply text-customLightGreen;
+}
+.image {
+  @apply absolute bottom-0 right-0;
+}

@@ -1,0 +1,123 @@
+.footer {
+  @apply pt-[40px] pb-[20px] bg-customLightGreen;
+}
+
+.wrapper {
+  @apply flex flex-col;
+}
+
+.links_wrapper {
+  @apply pb-[40px];
+}
+
+.logo {
+  @apply pb-[20px] block;
+}
+
+.logo_icon {
+  @apply w-[154px] h-[28px] fill-customLight;
+
+}
+
+.social_links {
+  @apply flex gap-3;
+}
+
+.social_icon {
+  @apply border border-[#e8e8e2] p-[11px] rounded-[10px];
+}
+
+.icon_social {
+  @apply w-[24px] h-[24px] fill-[#e8e8e2] stroke-[#e8e8e2];
+}
+
+.text_wrapper {
+}
+
+.title {
+  @apply font-medium text-[24px] leading-[1.16] tracking-[-0.02em] text-customLight pb-[14px];
+}
+
+.text_descr {
+  @apply font-normal text-[14px] leading-[1.28] text-[#e8e8e2] pb-[80px];
+}
+
+.subscribe_wrapper {
+}
+
+.form {
+  @apply pb-[80px];
+}
+
+.subscribe_descr {
+  @apply font-normal text-[14px] leading-[1.28] text-customLight pb-[20px];
+}
+
+.input {
+  @apply w-full  bg-transparent border outline-none rounded-[30px] focus:border-slate-300 transition-all duration-500 px-[18px] py-[12px];
+}
+
+.error {
+}
+
+.button {
+  @apply w-full py-[12px] font-medium text-[14px] tracking-[1.28] mt-[14px] bg-customLight rounded-[30px] h-[42px] text-customBlack border flex items-center justify-center;
+}
+
+.description_wrapper {
+
+}
+
+.error {
+  @apply uppercase pt-2 text-red-500 font-medium;
+}
+
+
+
+.web_name {
+  @apply font-normal text-[14px] tracking-[1.28] text-customLight opacity-[0.9];
+}
+
+.modal {
+  @apply  w-[490px] h-[400px] bg-customLight absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] rounded-[20px];
+}
+
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    @apply flex-row gap-[78px];
+  }
+
+  .icon_social {
+    @apply w-[28] h-[28px];
+  }
+  .title {
+    @apply text-[40px];
+  }
+  .text_descr {
+    @apply text-[18px];
+  }
+  .input {
+    @apply text-[18px] w-[336px];
+  }
+  .subscribe_descr {
+    @apply text-[18px];
+  }
+  .button {
+    @apply text-[16px] h-[48px] w-[336px];
+  }
+  .description_wrapper {
+    @apply flex justify-between;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .desktop_container {
+    @apply flex;
+  }
+  .tablet_container {
+    @apply flex-col;
+  }
+  .social_icon {
+    @apply hover:bg-slate-500 transition-all duration-300;
+  }
+}
