@@ -14,14 +14,12 @@ export interface ProductsListItemProps {
 
 export default function ProductsListItem({
   category,
-  is10PercentOff,
   size,
   name,
   img,
   popularity,
   price,
 }: ProductsListItemProps) {
-  console.log(is10PercentOff);
   return (
     <li className={scss.product_item}>
       <div className={scss.wrapper}>

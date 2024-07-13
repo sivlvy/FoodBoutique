@@ -9,7 +9,6 @@ export interface ProductsListProps {
 }
 
 export default function ProductsList({ items }: ProductsListProps) {
-  console.log(items);
   return (
     <div className="flex flex-col">
       <ul className={scss.list}>

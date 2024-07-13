@@ -10,12 +10,9 @@ export interface ProductsPopularProps {
 }
 
 export default function ProductsPopular({ items }: ProductsPopularProps) {
-  console.log(items);
   return (
-    <>
-      <h2 className="font-medium text-[24px] leading-[1.67] text-customBlack pb-[20px]">
-        Popular products
-      </h2>
+    <div className="flex flex-col">
+      <h2 className={scss.title}>Popular products</h2>
       <div className={scss.wrapper}>
         <ul className={scss.list}>
           {items.map(
@@ -32,6 +29,6 @@ export default function ProductsPopular({ items }: ProductsPopularProps) {
           )}
         </ul>
       </div>
-    </>
+    </div>
   );
 }

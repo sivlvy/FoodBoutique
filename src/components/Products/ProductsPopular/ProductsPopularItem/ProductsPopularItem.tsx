@@ -37,13 +37,15 @@ export default function ProductsPopularItem({
               <p className={scss.subtitle}>Category:</p>
               <p className={scss.span}>{category}</p>
             </div>
-            <div className={scss.sizeAndSpan}>
-              <p className={scss.subtitle}>Size:</p>
-              <p className={scss.span}>{size}</p>
-            </div>
-            <div className={scss.popularityAndSpan}>
-              <p className={scss.subtitle}>Popularity:</p>
-              <p className={scss.span}>{popularity}</p>
+            <div className="flex gap-[10px]">
+              <div className={scss.sizeAndSpan}>
+                <p className={scss.subtitle}>Size:</p>
+                <p className={scss.span}>{size}</p>
+              </div>
+              <div className={scss.popularityAndSpan}>
+                <p className={scss.subtitle}>Popularity:</p>
+                <p className={scss.span}>{popularity}</p>
+              </div>
             </div>
           </div>
         </div>

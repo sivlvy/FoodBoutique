@@ -1,0 +1,11 @@
+.wrapper {
+  @apply flex justify-center flex-col items-center;
+}
+
+.list {
+  @apply flex flex-col gap-[14px];
+}
+
+.title {
+  @apply font-medium text-[18px] tracking-[1.1] text-customBlack pt-[80px] pb-[20px];
+}

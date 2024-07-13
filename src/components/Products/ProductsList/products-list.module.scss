@@ -1,15 +1,13 @@
-.list {
-  @apply flex flex-col gap-[20px] items-center ;
-}
+@import 'src/styles/mixins';
 
-@media screen and (min-width: 768px) {
-  .list {
+.list {
+  @apply flex flex-col gap-[20px] items-center;
+  @include media-rules(tablet) {
     @apply items-center gap-[32px]  flex-row flex-wrap;
   }
-}
+  @include media-rules(desktop) {
+    @apply flex flex-wrap w-[925px];
 
-@media screen and (min-width: 1440px) {
-  .list {
-    @apply flex;
   }
 }
+

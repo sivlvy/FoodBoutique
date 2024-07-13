@@ -1,0 +1,46 @@
+@import 'src/styles/mixins';
+
+.item {
+  @apply bg-white w-[295px] rounded-[10px] cursor-pointer;
+}
+
+.wrapper {
+  @apply p-[16px];
+}
+
+.imgWrapper {
+  @apply relative flex items-center justify-center bg-customLight py-[18px] rounded-[10px];
+}
+
+.icon {
+  @apply absolute w-[60px] h-[60px] top-[-5px] right-[-5px];
+}
+
+.image {
+  @apply w-[114px] h-[114px] ;
+}
+
+.infoWrapper {
+  @apply flex justify-between items-center pt-[23px];
+}
+
+.title {
+  @apply font-medium text-[18px] leading-[1.11] text-customBlack;
+}
+
+.priceAndIcon {
+  @apply flex gap-[8px] items-center;
+}
+
+.price {
+  @apply font-medium text-[18px] leading-[1.11] text-customBlack;
+
+}
+
+.icon_wrapper {
+  @apply bg-customLightGreen cursor-pointer hover:bg-customGreen p-[8px] rounded-full;
+}
+
+.cart_icon {
+  @apply w-[18px] h-[18px] fill-customLight;
+}

@@ -2,7 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 import { Product, ProductListResponse } from "../../api/api-products.ts";
-import { fetchPopularProducts, fetchProducts } from "./products-operations.ts";
+import {
+  fetchDiscountProducts,
+  fetchPopularProducts,
+  fetchProducts,
+} from "./products-operations.ts";
 
 export interface StateProps {
   products: Product[];
@@ -74,6 +78,16 @@ const productsSlice = createSlice({
         (state, { payload }: PayloadAction<any>) => {
           state.isLoading = false;
           state.isError = payload;
+        },
+      )
+      .addCase(fetchDiscountProducts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        fetchDiscountProducts.fulfilled,
+        (state, { payload }: PayloadAction<Product[]>) => {
+          state.isLoading = false;
+          state.discountProducts = payload;
         },
       );
   },

@@ -1,1 +1,12 @@
 @import 'src/styles/mixins';
+
+.list {
+  @apply flex gap-[14px] flex-wrap justify-center;
+  @include media-rules(desktop) {
+    @apply flex-col;
+  }
+}
+
+.title {
+  @apply font-medium text-[24px] leading-[1.67] text-customBlack text-center  pb-[20px];
+}

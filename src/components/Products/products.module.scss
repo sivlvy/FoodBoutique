@@ -1,2 +1,7 @@
 @import 'src/styles/mixins';
 
+.list {
+  @include media-rules(desktop) {
+    @apply flex flex-wrap justify-between;
+  }
+}
