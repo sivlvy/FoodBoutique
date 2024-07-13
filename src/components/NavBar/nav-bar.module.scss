@@ -1,5 +1,5 @@
 .header {
-@apply pt-[18px];
+  @apply pt-[18px];
 }
 
 .wrapper {
@@ -7,20 +7,21 @@
 }
 
 .logo_wrapper {
-@apply flex items-center px-1 hover:bg-customLightGreen transition-all duration-200 rounded-lg hover:fill-customLight;
+  @apply flex items-center px-1  transition-all duration-200 rounded-lg hover:fill-customLight;
 }
 
 .logo_icon {
-  @apply w-[154px] h-[28px] fill-customGreen hover:fill-customLight hover:stroke-customBlack ;
+  @apply w-[154px] h-[28px] ;
 }
 
 .header_links {
- @apply flex flex-row gap-1.5 items-center justify-center;
+  @apply flex flex-row gap-1.5 items-center justify-center;
 }
 
 .header_link {
   @apply px-[20px] py-[10px] bg-customGreen hover:bg-customLightGreen transition-all duration-300 rounded-[30px] text-[14px] text-customLight font-medium;
 }
+
 .header_link_second {
   @apply flex flex-row items-center;
 }
@@ -38,7 +39,7 @@
 }
 
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   .header_link {
     @apply px-[28px] py-[12px];
   }
@@ -58,6 +59,6 @@
 }
 
 
-@media screen and (min-width:1440px) {
+@media screen and (min-width: 1440px) {
 
 }
