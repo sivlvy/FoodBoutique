@@ -1,27 +1,21 @@
 // import React from "react";
 import scss from "./products-list-item.module.scss";
 import icons from "../../../../assets/icons.svg";
+import { Product } from "../../../../api/api-products.ts";
 
 export interface ProductsListItemProps {
-  category: string;
-  img: string;
-  is10PercentOff: boolean;
-  name: string;
-  popularity: number;
-  price: number;
-  size: string;
+  product: Product;
+  openModal: (id: any) => void;
 }
 
 export default function ProductsListItem({
-  category,
-  size,
-  name,
-  img,
-  popularity,
-  price,
+  product,
+  openModal,
 }: ProductsListItemProps) {
+  const { category, size, name, img, popularity, price, _id } = product;
+
   return (
-    <li className={scss.product_item}>
+    <li onClick={() => openModal(_id)} className={scss.product_item}>
       <div className={scss.wrapper}>
         <div className={scss.img_wrapper}>
           <img src={img} alt={name} />

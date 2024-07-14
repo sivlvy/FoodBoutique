@@ -6,6 +6,7 @@ import {
   fetchDiscountProducts,
   fetchPopularProducts,
   fetchProducts,
+  getProductById,
 } from "./products-operations.ts";
 
 export interface StateProps {
@@ -13,6 +14,7 @@ export interface StateProps {
   cartProducts: Product[];
   popularProducts: Product[];
   discountProducts: Product[];
+  product: Product | null;
   page: number;
   isLoading: boolean;
   isError: null | string;
@@ -24,6 +26,7 @@ const initialState: StateProps = {
   popularProducts: [],
   discountProducts: [],
   page: 1,
+  product: null,
   isLoading: false,
   isError: null,
 };
@@ -88,6 +91,17 @@ const productsSlice = createSlice({
         (state, { payload }: PayloadAction<Product[]>) => {
           state.isLoading = false;
           state.discountProducts = payload;
+        },
+      )
+      .addCase(getProductById.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        getProductById.fulfilled,
+        (state, { payload }: PayloadAction<Product>) => {
+          state.isLoading = false;
+          console.log(payload);
+          state.product = payload;
         },
       );
   },

@@ -52,7 +52,7 @@ export const getProductsByKeyword = async (
 };
 
 export const getProductById = async (productId: string) => {
-  const { data } = await productInstance.get(`/:id=${productId}`);
+  const { data } = await productInstance.get(`/${productId}`);
   return data;
 };
 

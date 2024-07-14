@@ -8,7 +8,6 @@ export interface ProductsDiscountProps {
 }
 
 export default function ProductsDiscount({ items }: ProductsDiscountProps) {
-  console.log(items);
   const filteredItems = items.slice(0, 2);
   return (
     <div className={scss.wrapper}>
