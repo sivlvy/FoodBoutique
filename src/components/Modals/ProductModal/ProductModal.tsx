@@ -41,11 +41,10 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               <p className={scss.popularity}>
                 Popularity: {product.popularity}
               </p>
+              <p className={scss.description}>{product.desc}</p>
             </div>
           </div>
           <div className={scss.priceAndIcon}>
-            <p className={scss.description}>{product.desc}</p>
-
             <div className={scss.settingsWrapper}>
               <p className={scss.price}>${product.price}</p>
               <button className={scss.button}>

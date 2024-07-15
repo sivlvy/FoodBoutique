@@ -1,31 +1,26 @@
 // import React from "react";
 import scss from "./products-popular-item.module.scss";
 import icons from "../../../../assets/icons.svg";
+import { Product } from "../../../../api/api-products.ts";
 
 export interface ProductsPopularItemProps {
-  name: string;
-  img: string;
-  category: string;
-  size: string;
-  popularity: number;
+  product: Product;
+  openModal: (id: any) => void;
 }
 
 export default function ProductsPopularItem({
-  name,
-  popularity,
-  size,
-  img,
-  category,
+  product,
+  openModal,
 }: ProductsPopularItemProps) {
   return (
-    <li className={scss.product_item}>
+    <li onClick={() => openModal(product._id)} className={scss.product_item}>
       <div className={scss.wrapper}>
         <div className={scss.image_wrapper}>
-          <img className={scss.image} src={img} alt={name} />
+          <img className={scss.image} src={product.img} alt={product.name} />
         </div>
         <div className={scss.info_wrapper}>
           <div className={scss.nameAndIcon}>
-            <p className={scss.name}>{name}</p>
+            <p className={scss.name}>{product.name}</p>
             <div className={scss.iconWrapper}>
               <svg className={scss.icon_cart}>
                 <use href={`${icons}#icon-cart-icon`}></use>
@@ -35,16 +30,16 @@ export default function ProductsPopularItem({
           <div className={scss.textWrapper}>
             <div className={scss.categoryAndSpan}>
               <p className={scss.subtitle}>Category:</p>
-              <p className={scss.span}>{category}</p>
+              <p className={scss.span}>{product.category}</p>
             </div>
             <div className="flex gap-[10px]">
               <div className={scss.sizeAndSpan}>
                 <p className={scss.subtitle}>Size:</p>
-                <p className={scss.span}>{size}</p>
+                <p className={scss.span}>{product.size}</p>
               </div>
               <div className={scss.popularityAndSpan}>
                 <p className={scss.subtitle}>Popularity:</p>
-                <p className={scss.span}>{popularity}</p>
+                <p className={scss.span}>{product.popularity}</p>
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@
 
 .contentWrapper {
   @include media-rules(tablet) {
-    @apply flex flex-wrap gap-[14px];
+    @apply flex flex-wrap flex-row gap-[14px];
   }
 }
 
@@ -16,6 +16,7 @@
 
 .imageWrapper {
   @apply mb-[20px] flex justify-center items-center w-[255px] h-[212px] rounded-[10px] bg-customLight;
+
 }
 
 .image {
@@ -29,7 +30,7 @@
 .infoWrapper {
   @apply mb-5 flex justify-between flex-col font-normal text-[12px] leading-[1.16] text-customBlack;
   @include media-rules(tablet) {
-    @apply justify-normal;
+    @apply justify-normal w-1/2;
   }
 }
 
@@ -44,7 +45,7 @@
 .priceAndIcon {
   @apply flex justify-between items-center flex-wrap;
   @include media-rules(tablet) {
-    @apply flex flex-row flex-wrap;
+    @apply flex flex-row flex-wrap w-full;
   }
 }
 
@@ -60,7 +61,7 @@
 }
 
 .settingsWrapper {
-  @apply flex items-center justify-between w-full pt-[40px] ;
+  @apply flex items-center justify-between w-full  ;
   @include media-rules(tablet) {
     @apply flex items-center justify-between w-full;
   }
