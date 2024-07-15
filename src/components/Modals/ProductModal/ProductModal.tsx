@@ -5,6 +5,7 @@ import { Product } from "../../../api/api-products.ts";
 import scss from "./product-modal.module.scss";
 
 import icons from "../../../assets/icons.svg";
+import { useAppSelector } from "../../../hooks/hooks.ts";
 
 export interface ProductModalProps {
   product: Product;
@@ -12,7 +13,8 @@ export interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
-  const { img, name, category, size, popularity, desc, price } = product;
+  const isLoading = useAppSelector((state) => state.products.isLoading);
+
   console.log(product);
   if (!product) {
     return null;
@@ -24,25 +26,38 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           <use href={`${icons}#icon-close`}></use>
         </svg>
       </button>
-      <div className={scss.imageWrapper}>
-        <img className={scss.image} src={img} alt={name} />
-      </div>
-      <div className={scss.infoWrapper}>
-        <h2 className={scss.title}>{name}</h2>
-        <p className={scss.category}>Category: {category}</p>
-        <p className={scss.size}>Size: {size}</p>
-        <p className={scss.popularity}>Popularity: {popularity}</p>
-      </div>
-      <p className={scss.description}>{desc}</p>
-      <div className={scss.priceAndIcon}>
-        <p className={scss.price}>${price}</p>
-        <button className={scss.button}>
-          Add to
-          <svg>
-            <use href={`${icons}#icon-cart-icon`}></use>
-          </svg>
-        </button>
-      </div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className={scss.contentWrapper}>
+          <div className={scss.imageWrapper}>
+            <img className={scss.image} src={product.img} alt={product.name} />
+          </div>
+          <div className={scss.infoWrapper}>
+            <h2 className={scss.title}>{product.name}</h2>
+            <div className="flex gap-[5px] flex-col">
+              <p className={scss.category}>Category: {product.category}</p>
+              <p className={scss.size}>Size: {product.size}</p>
+              <p className={scss.popularity}>
+                Popularity: {product.popularity}
+              </p>
+            </div>
+          </div>
+          <div className={scss.priceAndIcon}>
+            <p className={scss.description}>{product.desc}</p>
+
+            <div className={scss.settingsWrapper}>
+              <p className={scss.price}>${product.price}</p>
+              <button className={scss.button}>
+                Add to
+                <svg className={scss.iconCart}>
+                  <use href={`${icons}#icon-cart-icon`}></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

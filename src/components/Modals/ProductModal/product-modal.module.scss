@@ -1,16 +1,67 @@
+@import 'src/styles/mixins';
+
 .wrapper {
   @apply px-[20px] py-[40px];
 }
 
+.contentWrapper {
+  @include media-rules(tablet) {
+    @apply flex flex-wrap gap-[14px];
+  }
+}
 
 .svgWrapper {
   @apply w-[22px] h-[22px] absolute top-[14px] right-[14px];
 }
 
 .imageWrapper {
-  @apply flex justify-center items-center w-[255px] h-[212px] rounded-[10px] bg-customLight;
+  @apply mb-[20px] flex justify-center items-center w-[255px] h-[212px] rounded-[10px] bg-customLight;
 }
 
-image {
+.image {
   @apply w-[160px] h-[160px];
+}
+
+.title {
+  @apply mb-2.5 font-medium text-[18px] leading-[1.11] text-customBlack;
+}
+
+.infoWrapper {
+  @apply mb-5 flex justify-between flex-col font-normal text-[12px] leading-[1.16] text-customBlack;
+  @include media-rules(tablet) {
+    @apply justify-normal;
+  }
+}
+
+.description {
+  @apply pb-[40px]  h-[54px] overflow-hidden font-normal text-[14px] leading-[1.28] text-customBlack;
+}
+
+.iconCart {
+  @apply w-[18px] h-[18px] fill-customGreen;
+}
+
+.priceAndIcon {
+  @apply flex justify-between items-center flex-wrap;
+  @include media-rules(tablet) {
+    @apply flex flex-row flex-wrap;
+  }
+}
+
+.price {
+  @apply font-medium text-[18px] leading-[1.11] text-customBlack;
+}
+
+.button {
+  @apply text-customLight font-medium text-[14px] leading-[1.28] bg-customLightGreen flex gap-[10px] items-center justify-center px-[14px] py-[12px] rounded-[30px];
+  @include media-rules(tablet) {
+    @apply px-[28px] py-[14px];
+  }
+}
+
+.settingsWrapper {
+  @apply flex items-center justify-between w-full pt-[40px] ;
+  @include media-rules(tablet) {
+    @apply flex items-center justify-between w-full;
+  }
 }
