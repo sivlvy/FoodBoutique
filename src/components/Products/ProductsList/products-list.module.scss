@@ -11,3 +11,7 @@
   }
 }
 
+.Modal {
+  @apply absolute translate-x-[-50%] translate-y-[-50%] rounded-[20px] border-slate-300 shadow-md border bg-white top-1/2 left-[42%] h-[536px] w-[295px];
+}
+

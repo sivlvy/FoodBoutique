@@ -1,0 +1,16 @@
+.wrapper {
+  @apply px-[20px] py-[40px];
+}
+
+
+.svgWrapper {
+  @apply w-[22px] h-[22px] absolute top-[14px] right-[14px];
+}
+
+.imageWrapper {
+  @apply flex justify-center items-center w-[255px] h-[212px] rounded-[10px] bg-customLight;
+}
+
+image {
+  @apply w-[160px] h-[160px];
+}

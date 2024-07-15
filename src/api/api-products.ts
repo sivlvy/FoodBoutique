@@ -8,7 +8,7 @@ const productInstance = axios.create({
 
 export interface Product {
   _id?: string;
-  index?: number;
+  desc?: string;
   name: string;
   img: string;
   price: number;

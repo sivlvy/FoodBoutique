@@ -3,9 +3,9 @@
 import { Product } from "../../../api/api-products.ts";
 import ProductsListItem from "./ProductsListItem/ProductsListItem.tsx";
 import scss from "./products-list.module.scss";
-import { useAppDispatch } from "../../../hooks/hooks.ts";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks.ts";
 import { getProductById } from "../../../redux/products/products-operations.ts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Modal from "react-modal";
 import ProductModal from "../../Modals/ProductModal/ProductModal.tsx";
@@ -24,6 +24,20 @@ export default function ProductsList({ items }: ProductsListProps) {
     setModalIsOpen(true);
   };
 
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
+
+  useEffect(() => {
+    if (modalIsOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+  }, [modalIsOpen]);
+
+  const product: any = useAppSelector((state) => state.products.product);
+
   return (
     <div className="flex flex-col">
       <ul className={scss.list}>
@@ -34,8 +48,12 @@ export default function ProductsList({ items }: ProductsListProps) {
             openModal={handleOpenModal}
           />
         ))}
-        <Modal isOpen={modalIsOpen}>
-          <ProductModal />
+        <Modal
+          className={scss.Modal}
+          overlayClassName={scss.Overlay}
+          isOpen={modalIsOpen}
+        >
+          <ProductModal onClose={handleCloseModal} product={product} />
         </Modal>
       </ul>
     </div>
