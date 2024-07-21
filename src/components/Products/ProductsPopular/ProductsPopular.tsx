@@ -41,10 +41,10 @@ export default function ProductsPopular({ items }: ProductsPopularProps) {
               openModal={handleOpenModal}
             />
           ))}
+          <Modal isOpen={modalIsOpen} className={scss.Modal}>
+            <ProductModal product={product} onClose={handleCloseModal} />
+          </Modal>
         </ul>
-        <Modal isOpen={modalIsOpen}>
-          <ProductModal product={product} onClose={handleCloseModal} />
-        </Modal>
       </div>
     </div>
   );

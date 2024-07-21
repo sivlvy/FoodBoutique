@@ -1,7 +1,7 @@
-import icons from "../../assets/icons.svg";
+import icons from "../../../assets/icons.svg";
 import scss from "./subscribe-modal.module.scss";
 
-import * as images from "../../assets/images/index.ts";
+import * as images from "../../../assets/images";
 
 export interface SubscribeModalProps {
   closeModal: () => void;

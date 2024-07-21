@@ -6,7 +6,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Container from "../Container/Container.tsx";
 import icons from "../../assets/icons.svg";
 import scss from "./footer.module.scss";
-import SubscribeModal from "../Modal/SubscribeModal.tsx";
+import SubscribeModal from "../Modals/FooterModal/SubscribeModal.tsx";
 
 interface Input {
   email: string;

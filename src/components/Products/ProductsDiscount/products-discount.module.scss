@@ -1,3 +1,5 @@
+@import 'src/styles/mixins';
+
 .wrapper {
   @apply flex justify-center flex-col items-center;
 }
@@ -8,4 +10,11 @@
 
 .title {
   @apply font-medium text-[18px] tracking-[1.1] text-customBlack pt-[80px] pb-[20px];
+}
+
+.Modal {
+  @apply absolute translate-x-[-50%] translate-y-[-50%] rounded-[20px] border-slate-300 shadow-md border bg-white top-1/2 left-[42%] h-[536px] w-[295px];
+  @include media-rules(tablet) {
+    @apply w-[600px] h-fit;
+  }
 }
