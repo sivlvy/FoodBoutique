@@ -36,6 +36,7 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, { payload }: PayloadAction<Product>) => {
+      console.log(payload);
       state.cartProducts.push(payload);
     },
     deleteFromCart: (state, { payload }: PayloadAction<string>) => {
@@ -100,11 +101,12 @@ const productsSlice = createSlice({
         getProductById.fulfilled,
         (state, { payload }: PayloadAction<Product>) => {
           state.isLoading = false;
-          console.log(payload);
           state.product = payload;
         },
       );
   },
 });
+
+export const { addToCart, deleteFromCart, resetCart } = productsSlice.actions;
 
 export default productsSlice.reducer;

@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { thunk } from "redux-thunk";
 import rootReducer from "./rootReducer.ts";
 
 import {
-  // persistStore,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -18,7 +18,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(thunk), // Додаємо thunk як middleware
 });
 
 export type RootState = ReturnType<typeof store.getState>;

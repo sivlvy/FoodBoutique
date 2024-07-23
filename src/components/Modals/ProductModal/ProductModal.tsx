@@ -15,7 +15,6 @@ export interface ProductModalProps {
 export default function ProductModal({ product, onClose }: ProductModalProps) {
   const isLoading = useAppSelector((state) => state.products.isLoading);
 
-  console.log(product);
   if (!product) {
     return null;
   }
