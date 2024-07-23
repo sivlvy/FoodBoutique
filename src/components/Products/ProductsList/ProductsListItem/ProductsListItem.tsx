@@ -22,11 +22,11 @@ export default function ProductsListItem({
   const cartProducts = useAppSelector((state) => state.products.cartProducts);
 
   const isDuplicateProduct = cartProducts.some(
-    (product) => product._id === _id,
+    (product: Product) => product._id === _id,
   );
 
   const handleAddToCart = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Запобігає відкриттю модального вікна при кліку на кнопку
+    e.stopPropagation();
     if (!isDuplicateProduct) {
       dispatch(addToCart(product));
     }

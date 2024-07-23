@@ -47,6 +47,12 @@
   @apply w-[12px] h-[12px] fill-customGreen ;
 }
 
+.icon_cart_done {
+  @apply w-[12px] h-[12px] stroke-customGreen ;
+
+}
+
+.icon
 .textWrapper {
   @apply flex text-[12px] flex-col;
 }

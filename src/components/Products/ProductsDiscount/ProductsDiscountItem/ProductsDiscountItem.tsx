@@ -4,6 +4,9 @@ import scss from "./products-discount-item.module.scss";
 
 import icons from "../../../../assets/icons.svg";
 import { Product } from "../../../../api/api-products.ts";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks.ts";
+import React from "react";
+import { addToCart } from "../../../../redux/products/products-slice.ts";
 
 export interface ProductsDiscountItemProps {
   product: Product;
@@ -14,6 +17,20 @@ export default function ProductsDiscountItem({
   product,
   openModal,
 }: ProductsDiscountItemProps) {
+  const cartProducts = useAppSelector((state) => state.products.cartProducts);
+
+  const dispatch = useAppDispatch();
+
+  const isDuplicateProduct = cartProducts.some(
+    (item: Product) => item._id === product._id,
+  );
+
+  const handleClickCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!isDuplicateProduct) {
+      dispatch(addToCart(product));
+    }
+  };
   return (
     <li className={scss.item} onClick={() => openModal(product._id)}>
       <div className={scss.wrapper}>
@@ -27,11 +44,19 @@ export default function ProductsDiscountItem({
           <h2 className={scss.title}>{product.name}</h2>
           <div className={scss.priceAndIcon}>
             <p className={scss.price}>{product.price}$</p>
-            <div className={scss.icon_wrapper}>
-              <svg className={scss.cart_icon}>
-                <use href={`${icons}#icon-cart-icon`}></use>
-              </svg>
-            </div>
+            <button onClick={handleClickCart}>
+              <div className={scss.icon_wrapper}>
+                {!isDuplicateProduct ? (
+                  <svg className={scss.cart_icon}>
+                    <use href={`${icons}#icon-cart-icon`}></use>
+                  </svg>
+                ) : (
+                  <svg className={scss.cart_icon}>
+                    <use href={`${icons}#icon-done-icon`}></use>
+                  </svg>
+                )}
+              </div>
+            </button>
           </div>
         </div>
       </div>
