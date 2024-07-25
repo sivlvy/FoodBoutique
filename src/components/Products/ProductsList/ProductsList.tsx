@@ -12,9 +12,15 @@ import ProductModal from "../../Modals/ProductModal/ProductModal.tsx";
 
 export interface ProductsListProps {
   items: Product[];
+  handleNextPage: () => void;
+  handlePrevPage: () => void;
 }
 
-export default function ProductsList({ items }: ProductsListProps) {
+export default function ProductsList({
+  items,
+  handleNextPage,
+  handlePrevPage,
+}: ProductsListProps) {
   const dispatch = useAppDispatch();
 
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
@@ -56,6 +62,11 @@ export default function ProductsList({ items }: ProductsListProps) {
           <ProductModal onClose={handleCloseModal} product={product} />
         </Modal>
       </ul>
+      <div>
+        <p>pagination</p>
+        <button onClick={handlePrevPage}>Prev</button>
+        <button onClick={handleNextPage}>Next</button>
+      </div>
     </div>
   );
 }
