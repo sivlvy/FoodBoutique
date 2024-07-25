@@ -1,12 +1,13 @@
 import * as products from "../../api/api-products.ts";
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { ParamsProps } from "../../api/api-products.ts";
 
-export const fetchProducts = createAsyncThunk<any, number, any>(
+export const fetchProducts = createAsyncThunk<any, ParamsProps, any>(
   "products/fetchProducts",
-  async (page, { rejectWithValue }) => {
+  async (params, { rejectWithValue }) => {
     try {
-      const response = await products.getProducts(page);
+      const response = await products.getProducts(params);
       return response;
     } catch (err: any) {
       return rejectWithValue(err.response.data.message);

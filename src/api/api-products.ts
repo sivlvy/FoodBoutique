@@ -29,15 +29,21 @@ export interface ProductListResponse {
   results: Product[];
 }
 
-export const getProducts = async (page: number = 1) => {
-  const { data } = await productInstance.get<ProductListResponse>(
-    `?page=${page}`,
-  );
+export interface ParamsProps {
+  keyword?: string | null;
+  category?: string | null;
+  page: number;
+}
+
+export const getProducts = async (params: ParamsProps) => {
+  const { data } = await productInstance.get<ProductListResponse>(`/products`, {
+    params,
+  });
   return data;
 };
 
 export const getCategories = async () => {
-  const { data } = await productInstance.get<string[]>("/categories");
+  const { data } = await productInstance.get<string[]>("/products/categories");
   return data;
 };
 
@@ -46,32 +52,34 @@ export const getProductsByKeyword = async (
   category: string,
 ) => {
   const { data } = await productInstance.get(
-    `?keyword=${keyword}&category=${category}`,
+    `/products?keyword=${keyword}&category=${category}`,
   );
   return data;
 };
 
 export const getProductById = async (productId: string) => {
-  const { data } = await productInstance.get(`/${productId}`);
+  const { data } = await productInstance.get(`/products/${productId}`);
   return data;
 };
 
 export const getPopularProducts = async (limit: number = 5) => {
-  const { data } = await productInstance.get(`/popular?limit=${limit}`);
+  const { data } = await productInstance.get(
+    `/products/popular?limit=${limit}`,
+  );
   return data;
 };
 
 export const getDiscountProducts = async () => {
-  const { data } = await productInstance.get("/discount");
+  const { data } = await productInstance.get("/products/discount");
   return data;
 };
 
 export const addSubscription = async () => {
-  const { data } = await productInstance.post("/subscription");
+  const { data } = await productInstance.post("/products/subscription");
   return data;
 };
 
 export const addOrder = async () => {
-  const { data } = await productInstance.post("/orders");
+  const { data } = await productInstance.post("/products/orders");
   return data;
 };

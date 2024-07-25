@@ -18,8 +18,14 @@ export interface ProductsProps {}
 export default function Products({}: ProductsProps) {
   const dispatch = useAppDispatch();
 
-  const { products, popularProducts, discountProducts, isLoading } =
-    useAppSelector((state) => state.products);
+  const {
+    products,
+    popularProducts,
+    discountProducts,
+    isLoading,
+    category,
+    keyword,
+  } = useAppSelector((state) => state.products);
 
   const [page, setPage] = useState<number>(1);
 
@@ -32,8 +38,8 @@ export default function Products({}: ProductsProps) {
   };
 
   useEffect(() => {
-    dispatch(fetchProducts(page));
-  }, [dispatch, page]);
+    dispatch(fetchProducts({ category, page, keyword }));
+  }, [dispatch, page, category, keyword]);
 
   useEffect(() => {
     dispatch(fetchPopularProducts());
