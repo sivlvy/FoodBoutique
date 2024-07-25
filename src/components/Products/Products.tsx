@@ -1,5 +1,3 @@
-// import React from "react";
-
 import ProductsList from "./ProductsList/ProductsList.tsx";
 import ProductsPopular from "./ProductsPopular/ProductsPopular.tsx";
 import ProductsDiscount from "./ProductsDiscount/ProductsDiscount.tsx";
@@ -12,20 +10,17 @@ import {
 } from "../../redux/products/products-operations.ts";
 
 import scss from "./products.module.scss";
+import { resetFilter } from "../../redux/filters/filter-slice.ts";
 
 export interface ProductsProps {}
 
 export default function Products({}: ProductsProps) {
   const dispatch = useAppDispatch();
 
-  const {
-    products,
-    popularProducts,
-    discountProducts,
-    isLoading,
-    category,
-    keyword,
-  } = useAppSelector((state) => state.products);
+  const { products, popularProducts, discountProducts, isLoading } =
+    useAppSelector((state) => state.products);
+
+  const { category, keyword } = useAppSelector((state) => state.filters);
 
   const [page, setPage] = useState<number>(1);
 
@@ -36,6 +31,10 @@ export default function Products({}: ProductsProps) {
   const handlePrevPage = () => {
     setPage((prevPage) => Math.max(prevPage - 1, 1));
   };
+
+  useEffect(() => {
+    dispatch(resetFilter());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchProducts({ category, page, keyword }));
