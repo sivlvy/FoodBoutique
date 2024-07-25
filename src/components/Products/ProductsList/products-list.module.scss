@@ -1,7 +1,7 @@
 @import 'src/styles/mixins';
 
 .list {
-  @apply flex flex-col gap-[20px] items-center;
+  @apply flex flex-col gap-[20px] items-center pb-[40px];
   @include media-rules(tablet) {
     @apply items-center gap-[32px]  flex-row flex-wrap;
   }
@@ -16,5 +16,17 @@
   @include media-rules(tablet) {
     @apply w-[600px] h-fit;
   }
+}
+
+.paginationWrapper {
+  @apply flex gap-[120px];
+}
+
+.button {
+  @apply bg-white p-[18px] rounded-full hover:bg-customLightGreen transition-all duration-200;
+}
+
+.svg {
+  @apply w-[9px] h-[12px];
 }
 

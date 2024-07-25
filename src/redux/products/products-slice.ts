@@ -15,6 +15,7 @@ export interface StateProps {
   popularProducts: Product[];
   discountProducts: Product[];
   product: Product | null;
+  totalPages: number;
   page: number;
   isLoading: boolean;
   isError: null | string;
@@ -25,6 +26,7 @@ const initialState: StateProps = {
   cartProducts: [],
   popularProducts: [],
   discountProducts: [],
+  totalPages: 1,
   page: 1,
   product: null,
   isLoading: false,
@@ -56,6 +58,7 @@ const productsSlice = createSlice({
         fetchProducts.fulfilled,
         (state, { payload }: PayloadAction<ProductListResponse>) => {
           state.isLoading = false;
+          state.totalPages = payload.totalPages;
           state.products = payload.results;
           state.page = payload.page;
         },

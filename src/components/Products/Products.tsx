@@ -33,9 +33,12 @@ export default function Products({}: ProductsProps) {
 
   useEffect(() => {
     dispatch(fetchProducts(page));
+  }, [dispatch, page]);
+
+  useEffect(() => {
     dispatch(fetchPopularProducts());
     dispatch(fetchDiscountProducts());
-  }, [dispatch, page]);
+  }, [dispatch]);
   return (
     <div className={scss.list}>
       {isLoading ? (
