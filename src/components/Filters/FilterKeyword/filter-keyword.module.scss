@@ -16,12 +16,16 @@
   &:focus {
     border-color: #586f1f;
   }
+
+  @include media-rules(tablet) {
+    @apply w-[269px];
+  }
 }
 
 .button {
-  @apply absolute top-1/2 right-[20px] translate-y-[-50%];
+  @apply relative ;
 }
 
 .svg {
-  @apply w-[20px] h-[20px];
+  @apply w-[20px] h-[20px] absolute right-[20px] top-[-15px];
 }
