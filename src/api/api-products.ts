@@ -39,7 +39,6 @@ export const getProducts = async (params: ParamsProps) => {
   const { data } = await productInstance.get<ProductListResponse>(`/products`, {
     params,
   });
-  console.log(data);
   return data;
 };
 

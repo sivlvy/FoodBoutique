@@ -1,10 +1,11 @@
 .section_wrapper {
-  @apply pt-[72px] relative;
+  @apply pt-[72px] relative pb-[74px];
 }
 
 .hero_title {
-  @apply font-medium text-[44px] text-center text-customBlack pb-[16px] leading-[1.09];
+  @apply font-medium text-[40px] text-center text-customBlack pb-[16px] leading-[1.09];
 }
+
 .title_span {
   @apply text-customLightGreen;
 }
@@ -22,14 +23,17 @@
 }
 
 .icon_organic {
-  @apply absolute top-[-7px] right-[-67px];
+  @apply absolute top-[-7px] right-[7px] w-[100px] h-[100px];
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   .hero_title {
     @apply text-[80px] leading-[1];
   }
   .descr {
     @apply text-[18px] leading-[1.33];
+  }
+  .icon_organic {
+    @apply top-[-20px];
   }
 }

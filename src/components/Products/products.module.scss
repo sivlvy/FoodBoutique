@@ -2,6 +2,6 @@
 
 .list {
   @include media-rules(desktop) {
-    @apply flex flex-wrap justify-between;
+    @apply flex flex-nowrap justify-between;
   }
 }

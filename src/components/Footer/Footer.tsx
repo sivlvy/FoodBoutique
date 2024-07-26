@@ -24,9 +24,8 @@ export default function Footer({}: FooterProps) {
     formState: { errors },
   } = useForm<Input>();
 
-  const onSubmit: SubmitHandler<Input> = (data) => {
+  const onSubmit: SubmitHandler<Input> = () => {
     openModal();
-    console.log(data);
     reset();
   };
 

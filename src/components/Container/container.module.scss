@@ -1,17 +1,17 @@
 @media screen and (min-width: 375px) {
   .container {
-    @apply max-w-[335px] mx-auto;
+    @apply w-[335px] mx-auto px-[20px];
   }
 }
 
 @media screen and (min-width: 768px) {
   .container {
-    @apply max-w-[704px] mx-auto;
+    @apply w-[704px] mx-auto;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
-    @apply max-w-[1240px] mx-auto;
+    @apply w-[1240px] mx-auto;
   }
 }

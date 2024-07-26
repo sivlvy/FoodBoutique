@@ -24,7 +24,6 @@ export default function FilterKeyword({}: FilterKeywordProps) {
   const dispatch = useAppDispatch();
 
   const onSubmit = ({ search }: SearchProps) => {
-    console.log(search);
     if (search) {
       dispatch(filterSearch(search));
     }
