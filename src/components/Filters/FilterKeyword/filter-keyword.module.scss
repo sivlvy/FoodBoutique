@@ -1,0 +1,27 @@
+@import 'src/styles/mixins';
+
+
+.form {
+  @apply relative;
+}
+
+.input {
+  @apply w-full h-[48px] leading-[1.29] outline-transparent bg-transparent  rounded-[30px] transition-all  py-0 pr-[60px] pl-[20px];
+  border: 1px solid rgba(1, 1, 1, 0.3);
+
+  &::placeholder {
+    color: inherit;
+  }
+
+  &:focus {
+    border-color: #586f1f;
+  }
+}
+
+.button {
+  @apply absolute top-1/2 right-[20px] translate-y-[-50%];
+}
+
+.svg {
+  @apply w-[20px] h-[20px];
+}

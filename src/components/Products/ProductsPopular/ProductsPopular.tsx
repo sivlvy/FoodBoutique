@@ -17,7 +17,6 @@ export interface ProductsPopularProps {
 export default function ProductsPopular({ items }: ProductsPopularProps) {
   const dispatch = useAppDispatch();
   const product: any = useAppSelector((state) => state.products.product);
-
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
   const handleOpenModal = (id: string) => {

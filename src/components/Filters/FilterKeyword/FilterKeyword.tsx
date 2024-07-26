@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 
 import scss from "./filter-keyword.module.scss";
 
+import icons from "../../../assets/icons.svg";
+
 import { useAppDispatch } from "../../../hooks/hooks.ts";
 import {
   filterSearch,
@@ -36,9 +38,14 @@ export default function FilterKeyword({}: FilterKeywordProps) {
       <input
         {...register("search")}
         type="text"
+        className={scss.input}
         placeholder="Search for anything"
       />
-      <button type="submit">Search</button>
+      <button className={scss.button} type="submit">
+        <svg className={scss.svg}>
+          <use href={`${icons}#icon-search-icon`} />
+        </svg>
+      </button>
     </form>
   );
 }
