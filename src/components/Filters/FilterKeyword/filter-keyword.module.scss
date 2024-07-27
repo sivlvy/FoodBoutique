@@ -10,7 +10,7 @@
   border: 1px solid rgba(1, 1, 1, 0.3);
 
   &::placeholder {
-    color: inherit;
+    color: hsl(0, 0%, 50%);
   }
 
   &:focus {

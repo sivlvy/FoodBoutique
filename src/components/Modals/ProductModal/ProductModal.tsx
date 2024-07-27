@@ -5,7 +5,11 @@ import { Product } from "../../../api/api-products.ts";
 import scss from "./product-modal.module.scss";
 
 import icons from "../../../assets/icons.svg";
-import { useAppSelector } from "../../../hooks/hooks.ts";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks.ts";
+import {
+  addToCart,
+  deleteFromCart,
+} from "../../../redux/products/products-slice.ts";
 
 export interface ProductModalProps {
   product: Product;
@@ -13,7 +17,23 @@ export interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
-  const isLoading = useAppSelector((state) => state.products.isLoading);
+  const { isLoading, cartProducts } = useAppSelector((state) => state.products);
+
+  const { _id }: any = product;
+
+  const dispatch = useAppDispatch();
+
+  const isDuplicateProduct = cartProducts.some(
+    (product: Product) => product._id === _id,
+  );
+
+  const handleToggleCart = () => {
+    if (!isDuplicateProduct) {
+      dispatch(addToCart(product));
+    } else {
+      dispatch(deleteFromCart(_id));
+    }
+  };
 
   if (!product) {
     return null;
@@ -46,8 +66,8 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           <div className={scss.priceAndIcon}>
             <div className={scss.settingsWrapper}>
               <p className={scss.price}>${product.price}</p>
-              <button className={scss.button}>
-                Add to
+              <button className={scss.button} onClick={handleToggleCart}>
+                {!isDuplicateProduct ? "Add to" : "Remove from"}
                 <svg className={scss.iconCart}>
                   <use href={`${icons}#icon-cart-icon`}></use>
                 </svg>

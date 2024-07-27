@@ -4,7 +4,10 @@ import icons from "../../../../assets/icons.svg";
 import { Product } from "../../../../api/api-products.ts";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks.ts";
 import React from "react";
-import { addToCart } from "../../../../redux/products/products-slice.ts";
+import {
+  addToCart,
+  deleteFromCart,
+} from "../../../../redux/products/products-slice.ts";
 
 export interface ProductsPopularItemProps {
   product: Product;
@@ -17,19 +20,29 @@ export default function ProductsPopularItem({
 }: ProductsPopularItemProps) {
   const dispatch = useAppDispatch();
 
+  const { _id }: any = product;
+
   const cartProducts = useAppSelector((state) => state.products.cartProducts);
 
   const isDuplicateProduct = cartProducts.some(
     (item: Product) => item._id === product._id,
   );
 
-  const handleClickCart = (e: React.MouseEvent) => {
+  // const handleClickCart = (e: React.MouseEvent) => {
+  //   e.stopPropagation();
+  //   if (!isDuplicateProduct) {
+  //     dispatch(addToCart(product));
+  //   }
+  // };
+
+  const handleToggleCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!isDuplicateProduct) {
       dispatch(addToCart(product));
+    } else {
+      dispatch(deleteFromCart(_id));
     }
   };
-
   return (
     <li onClick={() => openModal(product._id)} className={scss.product_item}>
       <div className={scss.wrapper}>
@@ -39,18 +52,20 @@ export default function ProductsPopularItem({
         <div className={scss.info_wrapper}>
           <div className={scss.nameAndIcon}>
             <p className={scss.name}>{product.name}</p>
-            <button onClick={handleClickCart}>
-              <div className={scss.iconWrapper}>
-                {!isDuplicateProduct ? (
+            <button onClick={handleToggleCart}>
+              {!isDuplicateProduct ? (
+                <div className={scss.iconWrapper}>
                   <svg className={scss.icon_cart}>
                     <use href={`${icons}#icon-cart-icon`}></use>
                   </svg>
-                ) : (
+                </div>
+              ) : (
+                <div className={scss.iconWrapperDone}>
                   <svg className={scss.icon_cart_done}>
-                    <use href={`${icons}#icon-done-icon`}></use>
+                    <use href={`${icons}#icon-donePop-icon`}></use>
                   </svg>
-                )}
-              </div>
+                </div>
+              )}
             </button>
           </div>
           <div className={scss.textWrapper}>

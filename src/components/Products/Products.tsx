@@ -17,8 +17,9 @@ export interface ProductsProps {}
 export default function Products({}: ProductsProps) {
   const dispatch = useAppDispatch();
 
-  const { products, popularProducts, discountProducts, isLoading } =
-    useAppSelector((state) => state.products);
+  const { products, popularProducts, discountProducts } = useAppSelector(
+    (state) => state.products,
+  );
 
   const { category, keyword } = useAppSelector((state) => state.filters);
 
@@ -46,15 +47,11 @@ export default function Products({}: ProductsProps) {
   }, [dispatch]);
   return (
     <div className={scss.list}>
-      {isLoading ? (
-        <div>...Loading</div>
-      ) : (
-        <ProductsList
-          handlePrevPage={handlePrevPage}
-          handleNextPage={handleNextPage}
-          items={products}
-        />
-      )}
+      <ProductsList
+        handlePrevPage={handlePrevPage}
+        handleNextPage={handleNextPage}
+        items={products}
+      />
       <div className={scss.wrapper}>
         <ProductsPopular items={popularProducts} />
         <ProductsDiscount items={discountProducts} />

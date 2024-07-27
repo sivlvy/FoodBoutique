@@ -34,21 +34,21 @@
 }
 
 .iconWrapper {
-  @apply p-[8px] bg-customLight  rounded-full hover:bg-customGreen transition-all duration-200 cursor-pointer;
+  @apply p-[8px] bg-customLight focus:bg-customGreen  rounded-full  transition-all duration-200 cursor-pointer;
 }
 
-.iconWrapper:hover {
-  .icon_cart {
-    @apply fill-customLight;
-  }
+
+.iconWrapperDone {
+  @apply p-[8px] bg-customLight focus:bg-customGreen  rounded-full  transition-all duration-200 cursor-pointer;
 }
+
 
 .icon_cart {
   @apply w-[12px] h-[12px] fill-customGreen ;
 }
 
 .icon_cart_done {
-  @apply w-[12px] h-[12px] stroke-customGreen ;
+  @apply w-[12px] h-[12px] stroke-customLight ;
 
 }
 

@@ -3,7 +3,10 @@ import scss from "./products-list-item.module.scss";
 import icons from "../../../../assets/icons.svg";
 import { Product } from "../../../../api/api-products.ts";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks.ts";
-import { addToCart } from "../../../../redux/products/products-slice.ts";
+import {
+  addToCart,
+  deleteFromCart,
+} from "../../../../redux/products/products-slice.ts";
 import React from "react";
 
 export interface ProductsListItemProps {
@@ -15,7 +18,9 @@ export default function ProductsListItem({
   product,
   openModal,
 }: ProductsListItemProps) {
-  const { category, size, name, img, popularity, price, _id } = product;
+  const { category, size, name, img, popularity, price } = product;
+
+  const { _id }: any = product;
 
   const dispatch = useAppDispatch();
 
@@ -25,13 +30,20 @@ export default function ProductsListItem({
     (product: Product) => product._id === _id,
   );
 
-  const handleAddToCart = (e: React.MouseEvent) => {
+  // const handleAddToCart = (e: React.MouseEvent) => {
+  //   e.stopPropagation();
+  //   if (!isDuplicateProduct) {
+  //     dispatch(addToCart(product));
+  //   }
+  // };
+  const handleToggleCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!isDuplicateProduct) {
       dispatch(addToCart(product));
+    } else {
+      dispatch(deleteFromCart(_id));
     }
   };
-
   return (
     <li onClick={() => openModal(_id)} className={scss.product_item}>
       <div className={scss.wrapper}>
@@ -53,7 +65,7 @@ export default function ProductsListItem({
           </div>
           <div className={scss.priceAndIcon}>
             <p className={scss.price}>{price} $</p>
-            <button type="button" onClick={handleAddToCart}>
+            <button type="button" onClick={handleToggleCart}>
               <div className={scss.icon_wrapper}>
                 {!isDuplicateProduct ? (
                   <svg className={scss.cart_icon}>
