@@ -1,4 +1,4 @@
-@import 'src/styles/mixins';
+@import '../../../styles/mixins';
 
 .list {
   @apply flex flex-col gap-[20px] items-center pb-[40px];

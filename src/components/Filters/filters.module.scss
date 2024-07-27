@@ -1,0 +1,9 @@
+@import 'src/styles/mixins';
+
+.filterWrapper {
+  @apply flex flex-col gap-[10px] pb-[40px];
+
+  @include media-rules(tablet) {
+    @apply flex-row;
+  }
+}

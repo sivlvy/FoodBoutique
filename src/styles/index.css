@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
     font-family: 'Neue Montreal';
     src: local('Neue Montreal Regular'), local('Neue-Montreal-Regular'),
@@ -11,6 +12,7 @@
     font-weight: 400;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'Neue Montreal';
     src: local('Neue Montreal Medium'), local('Neue-Montreal-Medium'),
@@ -31,4 +33,87 @@
 body {
     font-family: 'Neue Montreal', sans-serif;
     @apply bg-customLight;
+}
+
+.react-select-container .react-select__control {
+    height: 48px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid rgba(1, 1, 1, .3);
+    border-radius: 30px;
+    cursor: pointer;
+    padding: 0 20px
+}
+
+@media screen and (min-width: 768px) {
+    .react-select-container {
+        width: 189px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .react-select-container {
+        width: 189px;
+    }
+}
+
+.react-select-container .react-select__indicator svg {
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+    stroke: #000;
+}
+
+.react-select__indicator-separator {
+    display: none;
+}
+
+.react-select-container .react-select__menu {
+    top: calc(100% + 8px);
+    box-shadow: 0 4px 11px #000000, 0 20px 69px #000000;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 14px 20px
+}
+
+.react-select-container .react-select__menu-list {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: max-content;
+    overflow: visible
+}
+
+
+.react-select-container .react-select__option {
+    line-height: 1.29;
+    color: #010101;
+    cursor: pointer;
+    transition: color .3s linear
+}
+
+.react-select-container .react-select__option--is-focused, .react-select-container .react-select__option--is-selected {
+    color: #000;
+}
+
+.react-select-container .react-select__option--is-focused {
+    color: #fff; /* Колір тексту при фокусуванні */
+    border-radius: 20px;
+    background-color: rgba(88, 111, 31, 0.9);
+}
+
+.react-select-container .react-select__option--is-selected {
+    color: #fff; /* Колір тексту для вибраного пункту */
+    background-color: rgba(88, 111, 31, 0.9);
+    border-radius: 20px;
+}
+
+.react-select-container .react-select__option {
+    line-height: 1.29;
+    color: #010101; /* Колір тексту */
+    cursor: pointer;
+    border-radius: 20px;
+    transition: color .3s linear, background-color .3s linear; /* Додає плавний перехід */
+    padding: 10px; /* Додає відступи */
 }

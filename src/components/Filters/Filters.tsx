@@ -3,6 +3,8 @@
 import FilterKeyword from "./FilterKeyword/FilterKeyword.tsx";
 import FilterSelect from "./FilterSelect/FilterSelect.tsx";
 
+import scss from "./filters.module.scss";
+
 export interface FiltersProps {}
 
 export default function Filters({}: FiltersProps) {
@@ -11,8 +13,10 @@ export default function Filters({}: FiltersProps) {
       <h3 className="font-normal text-[14px] leading-[1.28] text-customBlack pb-[8px]">
         Filters:
       </h3>
-      <FilterKeyword />
-      <FilterSelect />
+      <div className={scss.filterWrapper}>
+        <FilterKeyword />
+        <FilterSelect />
+      </div>
     </div>
   );
 }
