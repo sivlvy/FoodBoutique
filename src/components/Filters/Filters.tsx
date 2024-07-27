@@ -4,6 +4,7 @@ import FilterKeyword from "./FilterKeyword/FilterKeyword.tsx";
 import FilterSelect from "./FilterSelect/FilterSelect.tsx";
 
 import scss from "./filters.module.scss";
+import FilterClear from "./FilterClear/FilterClear.tsx";
 
 export interface FiltersProps {}
 
@@ -16,6 +17,7 @@ export default function Filters({}: FiltersProps) {
       <div className={scss.filterWrapper}>
         <FilterKeyword />
         <FilterSelect />
+        <FilterClear />
       </div>
     </div>
   );

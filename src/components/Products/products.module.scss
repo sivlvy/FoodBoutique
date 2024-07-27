@@ -1,6 +1,7 @@
 @import '../../styles/mixins';
 
 .list {
+  @apply pb-[80px];
   @include media-rules(desktop) {
     @apply flex flex-nowrap justify-between;
   }

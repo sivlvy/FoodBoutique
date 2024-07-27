@@ -16,6 +16,20 @@
   @apply absolute w-[60px] h-[60px] top-[-5px] right-[-5px];
 }
 
+.icon {
+  display: inline-block;
+  animation: spin 6s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .image {
   @apply w-[114px] h-[114px] ;
 }

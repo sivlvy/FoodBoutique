@@ -12,8 +12,11 @@
 }
 
 .Modal {
-  @apply absolute translate-x-[-50%] translate-y-[-50%] rounded-[20px] border-slate-300 shadow-md border bg-white top-1/2 left-[42%] h-[536px] w-[295px];
+  @apply absolute translate-x-[-30%] translate-y-[-50%] rounded-[20px] border-slate-300 shadow-md border bg-white top-1/2 left-[42%] h-[536px] w-[295px];
   @include media-rules(tablet) {
     @apply w-[600px] h-fit;
+  }
+  @include media-rules(mobile) {
+    @apply translate-x-[-40%];
   }
 }

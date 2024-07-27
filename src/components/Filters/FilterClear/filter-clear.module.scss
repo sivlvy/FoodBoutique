@@ -1,0 +1,10 @@
+@import 'src/styles/mixins';
+
+.button {
+  @apply w-full h-[48px] leading-[1.29] flex items-center justify-center outline-transparent bg-transparent  rounded-[30px] transition-all;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+
+  @include media-rules(desktop) {
+    @apply w-[150px];
+  }
+}

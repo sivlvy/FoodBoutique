@@ -19,7 +19,7 @@ interface SearchProps {
 }
 
 export default function FilterKeyword({}: FilterKeywordProps) {
-  const { register, handleSubmit } = useForm<SearchProps>();
+  const { register, handleSubmit, reset } = useForm<SearchProps>();
 
   const dispatch = useAppDispatch();
 
@@ -30,6 +30,7 @@ export default function FilterKeyword({}: FilterKeywordProps) {
     if (!search) {
       dispatch(resetFilter);
     }
+    reset();
   };
 
   return (

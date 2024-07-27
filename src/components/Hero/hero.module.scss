@@ -26,6 +26,20 @@
   @apply absolute top-[-7px] right-[7px] w-[100px] h-[100px];
 }
 
+.icon_organic {
+  display: inline-block;
+  animation: spin 6s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media screen and (min-width: 768px) {
   .hero_title {
     @apply text-[80px] leading-[1];
