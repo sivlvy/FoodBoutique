@@ -11,6 +11,7 @@ import {
 
 import scss from "./products.module.scss";
 import { resetFilter } from "../../redux/filters/filter-slice.ts";
+import NotFoundProductsPage from "./NotFoundProductsPage/NotFoundProductsPage.tsx";
 
 export interface ProductsProps {}
 
@@ -47,11 +48,16 @@ export default function Products({}: ProductsProps) {
   }, [dispatch]);
   return (
     <div className={scss.list}>
-      <ProductsList
-        handlePrevPage={handlePrevPage}
-        handleNextPage={handleNextPage}
-        items={products}
-      />
+      {products.length ? (
+        <ProductsList
+          handlePrevPage={handlePrevPage}
+          handleNextPage={handleNextPage}
+          items={products}
+        />
+      ) : (
+        <NotFoundProductsPage />
+      )}
+
       <div className={scss.wrapper}>
         <ProductsPopular items={popularProducts} />
         <ProductsDiscount items={discountProducts} />

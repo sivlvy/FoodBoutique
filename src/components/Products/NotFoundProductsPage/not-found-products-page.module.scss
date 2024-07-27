@@ -1,0 +1,15 @@
+.wrapper {
+  @apply w-full text-center pt-[120px];
+}
+
+.title {
+  @apply font-medium text-[20px] leading-[1.2] text-center text-customBlack pb-[14px];
+}
+
+.span {
+  @apply text-customLightGreen;
+}
+
+.descr {
+  @apply font-normal text-[18px] text-center leading-[1.33] text-customBlack;
+}
