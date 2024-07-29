@@ -1,0 +1,19 @@
+.wrapper {
+  @apply flex items-center flex-col justify-center text-center pt-[105px];
+}
+
+.img {
+  @apply pb-[28px];
+}
+
+.title {
+  @apply font-medium text-[18px] leading-[1.1] text-customBlack pb-[14px];
+}
+
+.span {
+  @apply text-customLightGreen;
+}
+
+.descr {
+  @apply font-normal text-[14px] leading-[1.28] text-center text-black opacity-[0.7];
+}

@@ -10,3 +10,5 @@ export { default as hero_desk_2x } from "./hero-bg-desk@2x.jpg";
 export { default as footer_modal_desk } from "./footer-modal/footer-modal-desk.png";
 export { default as footer_modal_tablet } from "./footer-modal/footer-modal-table.png";
 export { default as footer_modal_mob } from "./footer-modal/footer-modal-mob-removebg-preview.png";
+
+export { default as empty_cart } from "./empty-card.jpg";

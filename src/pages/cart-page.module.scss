@@ -1,9 +1,39 @@
 @import 'src/styles/mixins';
 
 .list {
-  @apply flex flex-col;
+  @apply flex flex-col pb-[80px];
+
+  @include media-rules(tablet) {
+    @apply pb-[80px];
+  }
 
   @include media-rules(desktop) {
-    @apply flex-row;
+    @apply flex-row pb-[100px];
   }
+}
+
+.wrapper {
+  @apply pb-[80px] pt-[77px];
+  @include media-rules(tablet) {
+    @apply pb-[80px];
+  }
+  @include media-rules(desktop) {
+    @apply pb-[100px];
+  }
+}
+
+.logoWrapper {
+  @apply flex items-center gap-[14px] text-[24px] leading-[1.16] text-customBlack;
+}
+
+.svgWrapper {
+  @apply bg-customLightGreen p-[10px] rounded-full;
+}
+
+.title {
+  @apply font-medium uppercase;
+}
+
+.svg {
+  @apply w-[18px] h-[18px] fill-customLight;
 }

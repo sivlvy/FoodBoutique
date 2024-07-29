@@ -19,20 +19,17 @@
   overflow-x: hidden;
 }
 
-/* Загальний стиль скроллбару */
 ::-webkit-scrollbar {
-  width: 5px; /* Ширина вертикального скроллбару */
+  width: 5px;
 }
 
-/* Колір треку скроллбару */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Колір повзунка (ручки) скроллбару */
 ::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 6px; /* Закруглені краї повзунка */
+  border-radius: 6px;
 }
 
 /* Стиль повзунка при наведенні миші */
