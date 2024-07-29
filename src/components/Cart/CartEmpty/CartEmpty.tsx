@@ -1,6 +1,6 @@
 import scss from "./cart-empty.module.scss";
 
-import * as images from "../../assets/images/index.ts";
+import * as images from "../../../assets/images";
 
 export interface CartEmptyProps {}
 

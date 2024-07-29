@@ -8,7 +8,7 @@ import icons from "../../assets/icons.svg";
 import scss from "./footer.module.scss";
 import SubscribeModal from "../Modals/FooterModal/SubscribeModal.tsx";
 
-interface Input {
+export interface Input {
   email: string;
 }
 

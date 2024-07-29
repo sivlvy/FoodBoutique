@@ -1,0 +1,29 @@
+@import 'src/styles/mixins';
+
+.input {
+  @apply w-full  bg-transparent border border-slate-400  outline-none rounded-[30px] focus:border-slate-300 transition-all duration-500 px-[18px] py-[12px];
+
+
+}
+
+.button {
+  @apply w-full py-[12px] font-medium text-[14px] text-customLight tracking-[1.28] mt-[14px] bg-customLightGreen rounded-[30px]  text-customBlack border flex items-center justify-center;
+}
+
+.title {
+  @apply uppercase font-medium text-[24px] leading-[1.16] text-customBlack pb-[40px];
+}
+
+.counter {
+  @apply flex justify-between py-[14px] font-medium text-[18px] leading-[1.11] text-customBlack px-[18px] rounded-[8px] mb-[30px];
+  background: rgba(109, 132, 52, 0.05);
+}
+
+.span {
+  @apply font-normal text-[12px] leading-[1.16];
+  color: rgba(1, 1, 1, 0.2);
+}
+
+.priceWrapper {
+  @apply flex items-end;
+}

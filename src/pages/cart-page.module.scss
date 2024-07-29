@@ -13,7 +13,7 @@
 }
 
 .wrapper {
-  @apply pb-[80px] pt-[77px];
+  @apply pb-[80px] pt-[77px] ;
   @include media-rules(tablet) {
     @apply pb-[80px];
   }
