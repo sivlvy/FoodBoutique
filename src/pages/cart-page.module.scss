@@ -1,0 +1,9 @@
+@import 'src/styles/mixins';
+
+.list {
+  @apply flex flex-col;
+
+  @include media-rules(desktop) {
+    @apply flex-row;
+  }
+}

@@ -1,0 +1,98 @@
+@import 'src/styles/mixins';
+
+.product_item {
+  @apply relative rounded-[10px]  my-[30px]  cursor-pointer;
+  @include media-rules(tablet) {
+    @apply w-full;
+  }
+
+  @include media-rules(desktop) {
+    @apply w-[400px];
+  }
+}
+
+.product_item::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #111;
+  opacity: 0.1;
+  margin-top: 20px;
+}
+
+.wrapper {
+  @apply flex flex-row px-[12px] gap-[10px];
+
+}
+
+.price {
+  @apply pt-[10px];
+}
+
+.image_wrapper {
+  @apply flex  justify-center items-center w-[74px] h-[74px] bg-white rounded-[10px];
+}
+
+.deleteButton {
+  @apply w-[18px] h-[18px] absolute right-[5px] top-[-10px];
+}
+
+.image {
+  @apply w-[56px] h-[56px];
+}
+
+.info_wrapper {
+  @apply w-full ;
+}
+
+.nameAndIcon {
+  @apply flex items-center justify-between;
+
+}
+
+.name {
+  @apply font-medium text-[20px] text-customBlack leading-[1.2];
+}
+
+.iconWrapper {
+  @apply p-[8px] bg-customLight focus:bg-customGreen  rounded-full  transition-all duration-200 cursor-pointer;
+}
+
+
+.iconWrapperDone {
+  @apply p-[8px] bg-customLight focus:bg-customGreen  rounded-full  transition-all duration-200 cursor-pointer;
+}
+
+
+.icon_cart {
+  @apply w-[12px] h-[12px] fill-customGreen ;
+}
+
+.icon_cart_done {
+  @apply w-[12px] h-[12px] stroke-customLight ;
+
+}
+
+.textWrapper {
+  @apply flex text-[12px] ;
+}
+
+.categoryAndSpan {
+  @apply flex gap-[10px];
+}
+
+.sizeAndSpan {
+  @apply flex gap-[10px];
+}
+
+.popularityAndSpan {
+  @apply flex gap-[10px];
+
+}
+
+.subtitle {
+}
+
+.span {
+}

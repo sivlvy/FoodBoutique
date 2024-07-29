@@ -28,13 +28,6 @@ export default function ProductsPopularItem({
     (item: Product) => item._id === product._id,
   );
 
-  // const handleClickCart = (e: React.MouseEvent) => {
-  //   e.stopPropagation();
-  //   if (!isDuplicateProduct) {
-  //     dispatch(addToCart(product));
-  //   }
-  // };
-
   const handleToggleCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!isDuplicateProduct) {

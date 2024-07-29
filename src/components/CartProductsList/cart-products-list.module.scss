@@ -1,0 +1,41 @@
+@import 'src/styles/mixins';
+
+.buttonWrapper {
+  @apply flex items-center  cursor-pointer gap-[8px];
+  justify-content: end;
+}
+
+.deleteButton {
+  @apply font-medium text-[14px] leading-[1.28] text-customBlack;
+}
+
+.svg {
+  @apply w-[24px] h-[24px];
+}
+
+.list {
+  @apply max-h-[380px] w-full;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+/* Загальний стиль скроллбару */
+::-webkit-scrollbar {
+  width: 5px; /* Ширина вертикального скроллбару */
+}
+
+/* Колір треку скроллбару */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Колір повзунка (ручки) скроллбару */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px; /* Закруглені краї повзунка */
+}
+
+/* Стиль повзунка при наведенні миші */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
