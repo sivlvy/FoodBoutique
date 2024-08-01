@@ -1,13 +1,27 @@
 @import 'src/styles/mixins';
 
+.wrapper {
+  @apply pt-[80px];
+
+  @include media-rules(tablet) {
+    @apply p-0;
+  }
+
+}
+
 .input {
   @apply w-full  bg-transparent border border-slate-400  outline-none rounded-[30px] focus:border-slate-300 transition-all duration-500 px-[18px] py-[12px];
-
+  @include media-rules(tablet) {
+    @apply w-[359px];
+  }
 
 }
 
 .button {
   @apply w-full py-[12px] font-medium text-[14px] text-customLight tracking-[1.28] mt-[14px] bg-customLightGreen rounded-[30px]  text-customBlack border flex items-center justify-center;
+  @include media-rules(tablet) {
+    @apply m-0 w-[215px];
+  }
 }
 
 .title {
@@ -26,4 +40,16 @@
 
 .priceWrapper {
   @apply flex items-end;
+}
+
+.form {
+  @apply flex items-center justify-center flex-col;
+
+  @include media-rules(tablet) {
+    @apply justify-between flex-row;
+  }
+
+  @include media-rules(desktop) {
+    @apply justify-between gap-[10px];
+  }
 }

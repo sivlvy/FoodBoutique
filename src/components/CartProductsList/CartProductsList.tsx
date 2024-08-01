@@ -20,7 +20,7 @@ export default function CartProductsList({}: CartProductsListProps) {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <div className={scss.buttonWrapper} onClick={handleDeleteProducts}>
         <p className={scss.deleteButton}>Delete all</p>
         <svg className={scss.svg}>

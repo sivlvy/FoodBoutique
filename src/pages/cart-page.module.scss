@@ -8,15 +8,17 @@
   }
 
   @include media-rules(desktop) {
-    @apply flex-row pb-[100px];
+    @apply flex-row justify-between pb-[100px] gap-[60px];
   }
 }
 
 .wrapper {
   @apply pb-[80px] pt-[77px] ;
+
   @include media-rules(tablet) {
     @apply pb-[80px];
   }
+
   @include media-rules(desktop) {
     @apply pb-[100px];
   }

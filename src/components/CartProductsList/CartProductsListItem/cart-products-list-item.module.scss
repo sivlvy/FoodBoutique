@@ -7,8 +7,10 @@
   }
 
   @include media-rules(desktop) {
-    @apply w-[400px];
+    @apply w-full;
   }
+
+
 }
 
 .product_item::after {

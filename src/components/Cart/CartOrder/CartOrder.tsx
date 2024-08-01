@@ -17,7 +17,7 @@ export default function CartOrder({}: CartOrderProps) {
       .toFixed(2),
   );
 
-  // const onSubmit = (data: string) => {
+  // const onSubmit = (data: string): FormEvent => {
   //   console.log(data);
   //   reset();
   // };
@@ -45,7 +45,7 @@ export default function CartOrder({}: CartOrderProps) {
           })}
         />
         <button className={scss.button} type="submit">
-          Send
+          Checkout
         </button>
       </form>
     </div>
