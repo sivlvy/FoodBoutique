@@ -1,13 +1,22 @@
 import scss from "./cart-order.module.scss";
-import { useAppSelector } from "../../../hooks/hooks.ts";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks.ts";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { getOrders } from "../../../redux/products/products-operations.ts";
+import { OrderProductProps } from "../../../api/api-products.ts";
+import Modal from "react-modal";
+import { OrderModal } from "../../Modals/OrderModal/OrderModal.tsx";
 
 export interface CartOrderProps {}
 
 export default function CartOrder({}: CartOrderProps) {
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+
+  const dispatch = useAppDispatch();
+
   const cartProducts = useAppSelector((state) => state.products.cartProducts);
 
-  const { register } = useForm();
+  const { register, reset, handleSubmit } = useForm();
 
   const totalPrice = Number(
     cartProducts
@@ -17,10 +26,29 @@ export default function CartOrder({}: CartOrderProps) {
       .toFixed(2),
   );
 
-  // const onSubmit = (data: string): FormEvent => {
-  //   console.log(data);
-  //   reset();
-  // };
+  const order: OrderProductProps = cartProducts.map(({ _id }: any) => ({
+    productId: _id,
+    amount: 1,
+  }));
+
+  const onSubmit = (e: any): void => {
+    dispatch(
+      getOrders({
+        email: e.email,
+        products: order,
+      }),
+    );
+    reset();
+    openModal();
+  };
+
+  const openModal = (): void => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = (): void => {
+    setModalIsOpen(false);
+  };
 
   return (
     <div className={scss.wrapper}>
@@ -32,7 +60,7 @@ export default function CartOrder({}: CartOrderProps) {
           <p className={scss.price}>${totalPrice}</p>
         </div>
       </div>
-      <form className={scss.form}>
+      <form className={scss.form} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={scss.input}
           placeholder="Email"
@@ -48,6 +76,9 @@ export default function CartOrder({}: CartOrderProps) {
           Checkout
         </button>
       </form>
+      <Modal isOpen={modalIsOpen} className={scss.modal}>
+        <OrderModal closeModal={closeModal} />
+      </Modal>
     </div>
   );
 }

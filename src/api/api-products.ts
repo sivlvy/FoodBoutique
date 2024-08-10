@@ -35,6 +35,16 @@ export interface ParamsProps {
   page: number;
 }
 
+export interface OrderProductProps {
+  productId: string;
+  amount: number;
+}
+
+export interface OrdersProps {
+  email: string;
+  products: OrderProductProps;
+}
+
 export const getProducts = async (params: ParamsProps) => {
   const { data } = await productInstance.get<ProductListResponse>(`/products`, {
     params,
@@ -79,7 +89,8 @@ export const addSubscription = async () => {
   return data;
 };
 
-export const addOrder = async () => {
-  const { data } = await productInstance.post("/products/orders");
+export const addOrder = async (body: OrdersProps) => {
+  const { data } = await productInstance.post("/orders", body);
+  console.log(data);
   return data;
 };

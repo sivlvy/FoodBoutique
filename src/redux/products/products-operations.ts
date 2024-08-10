@@ -1,7 +1,7 @@
 import * as products from "../../api/api-products.ts";
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ParamsProps } from "../../api/api-products.ts";
+import { OrdersProps, ParamsProps } from "../../api/api-products.ts";
 
 export const fetchProducts = createAsyncThunk<any, ParamsProps, any>(
   "products/fetchProducts",
@@ -47,6 +47,20 @@ export const fetchPopularProducts = createAsyncThunk<any, void, any>(
       return response;
     } catch (err: any) {
       return rejectWithValue(err.response.data.message);
+    }
+  },
+);
+
+export const getOrders = createAsyncThunk<any, OrdersProps, any>(
+  "products/getOrders",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await products.addOrder(data);
+      console.log(data);
+      console.log(response);
+      return response;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data.message);
     }
   },
 );

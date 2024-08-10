@@ -12,3 +12,5 @@ export { default as footer_modal_tablet } from "./footer-modal/footer-modal-tabl
 export { default as footer_modal_mob } from "./footer-modal/footer-modal-mob-removebg-preview.png";
 
 export { default as empty_cart } from "./empty-card.jpg";
+
+export { default as order_success } from "./order-success.jpg";

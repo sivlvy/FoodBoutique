@@ -53,3 +53,7 @@
     @apply justify-between gap-[10px];
   }
 }
+
+.modal {
+  @apply w-[490px] h-fit bg-customLight absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] rounded-[20px];
+}

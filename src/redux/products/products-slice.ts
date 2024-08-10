@@ -6,6 +6,7 @@ import {
   fetchDiscountProducts,
   fetchPopularProducts,
   fetchProducts,
+  getOrders,
   getProductById,
 } from "./products-operations.ts";
 
@@ -108,7 +109,17 @@ const productsSlice = createSlice({
           state.isLoading = false;
           state.product = payload;
         },
-      );
+      )
+      .addCase(getOrders.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getOrders.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isError = null;
+      })
+      .addCase(getOrders.rejected, (state, { payload }): any => {
+        state.isError = payload as string | null;
+      });
   },
 });
 

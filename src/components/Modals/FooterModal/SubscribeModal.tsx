@@ -13,7 +13,7 @@ export default function SubscribeModal({ closeModal }: SubscribeModalProps) {
       <div className={scss.wrapper}>
         <div onClick={closeModal} className={scss.icon_close}>
           <svg className={scss.icon_close_logo}>
-            <use href={`${icons}#icon-icon-close`}></use>
+            <use href={`${icons}#icon-close`}></use>
           </svg>
         </div>
         <div className={scss.text_wrapper}>
