@@ -12,20 +12,19 @@ import {
 import scss from "./products.module.scss";
 import { resetFilter } from "../../redux/filters/filter-slice.ts";
 import NotFoundProductsPage from "./NotFoundProductsPage/NotFoundProductsPage.tsx";
+import { useMedia } from "use-media";
 
-export interface ProductsProps {}
-
-export default function Products({}: ProductsProps) {
-  const dispatch = useAppDispatch();
-
+export default function Products({}) {
   const { products, popularProducts, discountProducts } = useAppSelector(
     (state) => state.products,
   );
-
   const { category, keyword } = useAppSelector((state) => state.filters);
-
   const [page, setPage] = useState<number>(1);
+  const [limit, setLimit] = useState<number>(6);
 
+  const isDesktop = useMedia("(min-width: 1440px)");
+
+  const dispatch = useAppDispatch();
   const handleNextPage = () => {
     setPage(page + 1);
   };
@@ -39,8 +38,9 @@ export default function Products({}: ProductsProps) {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchProducts({ category, page, keyword }));
-  }, [dispatch, page, category, keyword]);
+    setLimit(isDesktop ? 9 : 6);
+    dispatch(fetchProducts({ category, page, keyword, limit }));
+  }, [dispatch, page, category, keyword, limit, isDesktop]);
 
   useEffect(() => {
     dispatch(fetchPopularProducts());

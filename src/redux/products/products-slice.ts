@@ -20,6 +20,7 @@ export interface StateProps {
   page: number;
   isLoading: boolean;
   isError: null | string;
+  limit: number;
 }
 
 const initialState: StateProps = {
@@ -32,6 +33,7 @@ const initialState: StateProps = {
   product: null,
   isLoading: false,
   isError: null,
+  limit: 9,
 };
 
 const productsSlice = createSlice({

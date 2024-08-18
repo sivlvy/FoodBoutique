@@ -33,6 +33,7 @@ export interface ParamsProps {
   keyword?: string | null;
   category?: string | null;
   page: number;
+  limit?: number;
 }
 
 export interface OrderProductProps {
